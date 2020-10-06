@@ -1,0 +1,50 @@
+﻿has_weak_trait_trigger = {
+    OR = {
+        has_trait = physique_bad
+        has_trait = weak
+    }
+}
+has_strong_trait_trigger = {
+    OR = {
+        has_trait = physique_good
+        has_trait = strong
+    }
+}
+has_feudal_government_trigger = {
+    OR = {
+        has_government = feudal_government
+        has_government = clan_government
+    }
+}
+has_substance_abuse_trait_trigger = {
+    OR = {
+        has_trait = drunkard
+        has_trait = hashishiyah
+    }
+}
+has_unpleasant_appearence_trait_trigger = {
+    OR = {
+		has_trait = beauty_bad
+		has_trait = hunchbacked
+		has_trait = dwarf
+		has_trait = spindly
+		has_trait = scaly
+		has_trait = albino
+        has_trait = inbred
+        has_trait = disfigured
+    }
+}
+can_get_chinese_nickname_trigger = {
+    OR = {
+        culture_group = culture_group:chinese_group
+        culture_group = culture_group:qiangic_group
+        culture = culture:khitan
+        culture = culture:jurchen
+    }
+}
+can_get_northerner_nickname_trigger = {
+    OR = {
+        culture_group = culture_group:north_germanic_group
+        has_religion = religion:germanic_religion
+    }
+}
