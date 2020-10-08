@@ -1,0 +1,21 @@
+﻿nicknames_plus_frequency = {
+	default = default_nicknames_plus_frequency
+
+	fewer_nicknames_plus_frequency = {
+    }
+
+	default_nicknames_plus_frequency = {
+	}
+    
+    more_nicknames_plus_frequency = {
+    }
+}
+nicknames_plus_cheats = {
+	default = off_nicknames_plus_cheats
+
+	on_nicknames_plus_cheats = {
+    }
+
+	off_nicknames_plus_cheats = {
+	}
+}

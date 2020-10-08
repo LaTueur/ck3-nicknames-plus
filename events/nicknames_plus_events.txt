@@ -1,4 +1,4 @@
-namespace = nicknames_plus
+﻿namespace = nicknames_plus
 
 nicknames_plus.0001 = {
 	hidden = yes
@@ -34,30 +34,34 @@ nicknames_plus.0003 = {
 	hidden = yes
 	trigger = {
 		age >= 20
-		OR = {
+		calc_true_if = {
+			amount >= 2
 			has_trait = compassionate
 			has_trait = calm
 			has_trait = forgiving
 			has_trait = generous
 		}
-		NOR = {
-			has_trait = callous
-			has_trait = sadistic
-			has_trait = vengeful
-			has_trait = wrathful
-			has_trait = greedy
-		}
 	}
 	weight_multiplier = {
-		base = 1
+		base = 2
 		modifier = {
-			factor = 3
+			factor = 2
 			calc_true_if = {
-				amount >= 2
+				amount >= 3
 				has_trait = compassionate
 				has_trait = calm
 				has_trait = forgiving
 				has_trait = generous
+			}
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				has_trait = callous
+				has_trait = sadistic
+				has_trait = vengeful
+				has_trait = wrathful
+				has_trait = greedy
 			}
 		}
 	}
@@ -77,24 +81,27 @@ nicknames_plus.0004 = {
 			has_trait = forgiving
 			has_trait = generous
 		}
-		NOR = {
-			has_trait = callous
-			has_trait = sadistic
-			has_trait = vengeful
-			has_trait = wrathful
-			has_trait = greedy
-		}
 	}
 	weight_multiplier = {
-		base = 1
+		base = 2
 		modifier = {
-			factor = 3
+			factor = 2
 			calc_true_if = {
 				amount >= 2
 				has_trait = compassionate
 				has_trait = calm
 				has_trait = forgiving
 				has_trait = generous
+			}
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				has_trait = callous
+				has_trait = sadistic
+				has_trait = vengeful
+				has_trait = wrathful
+				has_trait = greedy
 			}
 		}
 	}
@@ -368,7 +375,7 @@ nicknames_plus.0018 = {
 	hidden = yes
 	trigger = {
 		age >= 10
-		has_trait = born_in_purple
+		has_trait = born_in_the_purple
 	}
 	weight_multiplier = {
 		base = 1
@@ -3756,7 +3763,6 @@ nicknames_plus.0164 = {
 		OR = {
 			has_trait = greedy
 			has_trait = education_stewardship
-			has_trait = avaricious
 		}
 	}
 	weight_multiplier = {
@@ -4369,6 +4375,7 @@ nicknames_plus.0194 = {
 		}
 		is_female = no
 		is_married = yes
+		NOT = { has_trait = family_first }
 	}
 	weight_multiplier = {
 		base = 0.5
@@ -4386,7 +4393,7 @@ nicknames_plus.0194 = {
 		}
 		modifier = {
 			factor = 2
-			has_trait = vengeful
+			has_trait = impatient
 		}
 	}
 
@@ -4404,8 +4411,9 @@ nicknames_plus.0195 = {
 			has_trait = irritable
 		}
 		any_child = {
-			always = yes
+			is_alive = yes
 		}
+		NOT = { has_trait = family_first }
 	}
 	weight_multiplier = {
 		base = 0.5
@@ -4423,7 +4431,7 @@ nicknames_plus.0195 = {
 		}
 		modifier = {
 			factor = 2
-			has_trait = vengeful
+			has_trait = impatient
 		}
 	}
 

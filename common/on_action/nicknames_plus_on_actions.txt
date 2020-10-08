@@ -1,4 +1,4 @@
-yearly_playable_pulse = {
+﻿yearly_playable_pulse = {
 	on_actions = {
 		nickname_random_check
 	}
@@ -8,7 +8,24 @@ nickname_random_check = {
 		has_any_nickname = no
 	}
 	random_on_action = {
-		chance_to_happen = 2
+		chance_to_happen = 4
+		chance_of_no_event = {
+			if = {
+				limit = {
+					has_game_rule = fewer_nicknames_plus_frequency
+				}
+				value = 75 # 1%
+			}
+			else_if = {
+				limit = {
+					has_game_rule = more_nicknames_plus_frequency
+				}
+				value = 0  # 4%
+			}
+			else = {
+				value = 50 # 2%
+			}
+		}
 		100 = nickname_selection
 	}
 }

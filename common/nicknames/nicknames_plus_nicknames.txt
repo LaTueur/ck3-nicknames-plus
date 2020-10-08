@@ -1,4 +1,4 @@
-nick_the_tenacious = {}
+﻿nick_the_tenacious = {}
 nick_the_hollow = { is_bad = yes }
 nick_the_resilient = {}
 nick_one_eye = { is_bad = yes }
@@ -215,7 +215,7 @@ nick_the_bull = {}
 nick_little_orphan = { is_bad = yes }
 nick_weak_legs = { is_bad = yes }
 
-nick_the_indecisive = {} is_bad = yes 
+nick_the_indecisive = { is_bad = yes }
 nick_the_purple_born = {}
 nick_the_avenger = {}
 nick_the_pale = {}
@@ -227,3 +227,6 @@ nick_the_immovable = {}
 nick_the_bookish = { is_bad = yes }
 nick_the_apathetic = { is_bad = yes }
 nick_the_irresolute = { is_bad = yes }
+nick_the_ashamed = { is_bad = yes }
+nick_the_thoroughbred = {}
+nick_a_random_nickname = {} # Used for tooltip
