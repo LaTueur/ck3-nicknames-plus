@@ -326,5 +326,68 @@ nickname_selection = {
 		100 = nicknames_plus.0293
 		100 = nicknames_plus.0294
 		100 = nicknames_plus.0295
+		100 = nicknames_plus.0296
+		100 = nicknames_plus.0297
+		100 = nicknames_plus.0298
+		100 = nicknames_plus.0299
+		100 = nicknames_plus.0300
+	}
+}
+
+on_death = {
+	on_actions = {
+		nickname_preparation_on_death
+	}
+}
+nickname_preparation_on_death = {
+	trigger = {
+		has_any_nickname = no
+		is_ruler = yes
+	}
+	effect = {
+		save_scope_as = nickname_reciver
+		save_scope_value_as = { name = prestige_level value = scope:nickname_reciver.prestige_level }
+		save_scope_value_as = { name = piety_level value = scope:nickname_reciver.piety_level }
+		capital_county = {
+			trigger_event = {
+				on_action = nickname_scope_change_on_death
+				days = 1
+			}
+		}
+	}
+}
+nickname_scope_change_on_death = {
+	effect = {
+		holder = {
+			trigger_event = {
+				on_action = nickname_random_selection_on_death
+			}
+		}
+	}
+}
+nickname_random_selection_on_death = {
+	random_events = {
+		100 = nicknames_plus.5001
+		100 = nicknames_plus.5002
+		100 = nicknames_plus.5003
+		100 = nicknames_plus.5004
+		100 = nicknames_plus.5005
+		1000 = 0
+	}
+}
+
+on_birth_child = {
+	on_actions = {
+		nickname_preparation_on_birth_child
+	}
+}
+nickname_preparation_on_birth_child = {
+	trigger = {
+		scope:mother = {
+			exists = var:dead_spouse
+		}
+	}
+	effect = {
+		add_character_flag = nicknames_plus_posthumous
 	}
 }

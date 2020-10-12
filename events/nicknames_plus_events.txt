@@ -519,24 +519,28 @@ nicknames_plus.0024 = {
 	}
 
     immediate = {
-		set_nickname_effect = { NICKNAME = nick_the_handsome }
+		if = {
+			limit = {
+				is_female = no
+			}
+			set_nickname_effect = { NICKNAME = nick_the_handsome }
+		}
+		else = {
+			set_nickname_effect = { NICKNAME = nick_the_fair }
+		}
     }
 }
 nicknames_plus.0025 = {
 	hidden = yes
 	trigger = {
-		age >= 15
-		is_female = yes
-		has_trait = beauty_good
-		has_unpleasant_appearence_trait_trigger = no
-		NOT = { age >= 50 }
+		has_character_flag = born_as_taltos
 	}
 	weight_multiplier = {
-		base = 2
+		base = 6
 	}
 
     immediate = {
-		set_nickname_effect = { NICKNAME = nick_the_fair }
+		set_nickname_effect = { NICKNAME = nick_the_chosen }
     }
 }
 nicknames_plus.0026 = {
@@ -1322,15 +1326,29 @@ nicknames_plus.0057 = {
 	hidden = yes
 	trigger = {
 		age >= 20
+		piety_level <= 3
 		OR = {
 			piety_level <= 0
-			has_trait = deviant
-			has_trait = possessed
-			has_trait = kinslayer
+			AND = {
+				faith = { NOT = { has_doctrine_parameter = deviancy_accepted } }
+				has_trait = deviant
+			}
+			AND = {
+				faith = { NOT = { has_doctrine_parameter = witchcraft_accepted } }
+				has_trait = witch
+			}
+			AND = {
+				faith = { NOT = { has_doctrine_parameter = kinslaying_accepted } }
+				has_trait = kinslayer
+			}
+			AND = {
+				faith = { NOT = { has_doctrine_parameter = spirit_possession_active } }
+				has_trait = possessed
+			}
 		}
 	}
 	weight_multiplier = {
-		base = 1
+		base = 3
 		modifier = {
 			factor = 2.0
 			piety_level <= 0
@@ -1348,96 +1366,107 @@ nicknames_plus.0057 = {
 			num_sinful_traits >= 3
 		}
 		modifier = {
+			factor = 0.5
+			num_virtuous_traits >= 1
+		}
+		modifier = {
+			factor = 0.5
+			num_virtuous_traits >= 2
+		}
+		modifier = {
+			factor = 0.5
+			num_virtuous_traits >= 3
+		}
+		modifier = {
 			factor = 2.0
 			has_trait = cynical
 		}
 	}
 
     immediate = {
-		set_nickname_effect = { NICKNAME = nick_the_accursed }
+		random_list = {
+			100 = { set_nickname_effect = { NICKNAME = nick_the_accursed } }
+			100 = { set_nickname_effect = { NICKNAME = nick_the_wicked } }
+			100 = { set_nickname_effect = { NICKNAME = nick_the_bewitched } }
+		}
     }
 }
 nicknames_plus.0058 = {
 	hidden = yes
 	trigger = {
-		age >= 20
-		OR = {
-			piety_level <= 0
-			has_trait = deviant
-			has_trait = possessed
-			has_trait = kinslayer
-		}
+		age >= 16
+		has_religion = religion:christianity_religion
+		piety_level >= 2
+		has_trait = architect
 	}
 	weight_multiplier = {
-		base = 1
+		base = 3
 		modifier = {
-			factor = 2.0
-			piety_level <= 0
+			factor = 1.5
+			piety_level >= 3
 		}
 		modifier = {
-			factor = 2.0
-			num_sinful_traits >= 1
+			factor = 1.5
+			piety_level >= 4
 		}
 		modifier = {
-			factor = 2.0
-			num_sinful_traits >= 2
+			factor = 1.5
+			piety_level >= 5
 		}
 		modifier = {
-			factor = 2.0
-			num_sinful_traits >= 3
-		}
-		modifier = {
-			factor = 2.0
-			has_trait = cynical
+			factor = 1.5
+			faith = { has_doctrine = tenet_aniconism }
 		}
 	}
 
     immediate = {
-		set_nickname_effect = { NICKNAME = nick_the_wicked }
+		set_nickname_effect = { NICKNAME = nick_the_carpenter }
     }
 }
 nicknames_plus.0059 = {
 	hidden = yes
 	trigger = {
-		age >= 20
-		OR = {
-			piety_level <= 0
-			has_trait = deviant
-			has_trait = possessed
-			has_trait = kinslayer
-			has_trait = witch
+		age >= 16
+		learning >= 12
+		piety_level >= 2
+		faith = {
+			has_doctrine = eastern_hostility_doctrine
 		}
 	}
 	weight_multiplier = {
-		base = 1
+		base = 2
 		modifier = {
-			factor = 2.0
-			piety_level <= 0
+			factor = 1.5
+			piety_level >= 3
 		}
 		modifier = {
-			factor = 2.0
-			num_sinful_traits >= 1
+			factor = 1.5
+			piety_level >= 4
 		}
 		modifier = {
-			factor = 2.0
-			num_sinful_traits >= 2
+			factor = 1.5
+			piety_level >= 5
 		}
 		modifier = {
-			factor = 2.0
-			num_sinful_traits >= 3
+			factor = 1.2
+			learning >= 14
 		}
 		modifier = {
-			factor = 2.0
-			has_trait = witch
+			factor = 1.2
+			learning >= 16
 		}
 		modifier = {
-			factor = 2.0
-			has_trait = cynical
+			factor = 1.2
+			learning >= 18
+		}
+		modifier = {
+			factor = 1.2
+			learning >= 20
 		}
 	}
 
     immediate = {
-		set_nickname_effect = { NICKNAME = nick_the_bewitched }
+		set_nickname_effect = { NICKNAME = nick_the_guru }
     }
 }
 nicknames_plus.0060 = {
@@ -1603,40 +1632,38 @@ nicknames_plus.0065 = {
 	}
 
     immediate = {
-		set_nickname_effect = { NICKNAME = nick_the_monk }
+		if = {
+			limit = {
+				is_female = no
+			}
+			set_nickname_effect = { NICKNAME = nick_the_monk }
+		}
+		else = {
+			set_nickname_effect = { NICKNAME = nick_the_nun }
+		}
     }
 }
 nicknames_plus.0066 = {
 	hidden = yes
 	trigger = {
-		age >= 20
-		piety_level >= 2
-		is_female = yes
+		age >= 16
 		OR = {
-			has_trait = chaste
-			has_trait = celibate
-			has_trait = devoted
+			has_trait = impatient
+			has_trait = wrathful
+			has_trait = lunatic
+			has_trait = possessed
 		}
-		has_religion = religion:christianity_religion
+		NOR = {
+			has_trait = patient
+			has_trait = calm
+		}
 	}
 	weight_multiplier = {
-		base = 3
-		modifier = {
-			factor = 2.0
-			piety_level >= 3
-		}
-		modifier = {
-			factor = 2.0
-			piety_level >= 4
-		}
-		modifier = {
-			factor = 2.0
-			piety_level >= 5
-		}
+		base = 2
 	}
 
     immediate = {
-		set_nickname_effect = { NICKNAME = nick_the_nun }
+		set_nickname_effect = { NICKNAME = nick_the_rambunctious }
     }
 }
 nicknames_plus.0067 = {
@@ -2055,43 +2082,42 @@ nicknames_plus.0080 = {
 	}
 
     immediate = {
-		set_nickname_effect = { NICKNAME = nick_the_dragon }
+		if = {
+			limit = {
+				is_female = no
+			}
+			set_nickname_effect = { NICKNAME = nick_the_dragon }
+		}
+		else = {
+			set_nickname_effect = { NICKNAME = nick_the_dragoness }
+		}
     }
 }
 nicknames_plus.0081 = {
 	hidden = yes
 	trigger = {
-		is_female = yes
-		OR = {
-			has_trait = cannibal
-			AND = {
-				OR = {
-					has_trait = wrathful
-					has_trait = vengeful
-					has_trait = impatient
-				}
-				OR = {
-					has_trait = kinslayer
-					has_trait = excommunicated
-					has_trait = torturer
-				}
-			}
-		}
+		age >= 16
+		has_trait = possessed
+		has_trait = lifestyle_mystic
 	}
 	weight_multiplier = {
 		base = 3
 		modifier = {
 			factor = 2
-			has_trait = kinslayer
+			faith = {
+				has_doctrine_parameter = spirit_possession_active
+			}
 		}
 		modifier = {
-			factor = 5
-			has_trait = cannibal
+			factor = 2
+			faith = {
+				has_doctrine_parameter = tenet_esotericism_mystic_education
+			}
 		}
 	}
 
     immediate = {
-		set_nickname_effect = { NICKNAME = nick_the_dragoness }
+		set_nickname_effect = { NICKNAME = nick_the_medium }
     }
 }
 nicknames_plus.0082 = {
@@ -2630,7 +2656,6 @@ nicknames_plus.0108 = {
 	trigger = {
 		age >= 16
 		highest_held_title_tier = tier_duchy
-		is_female = no
 		prowess >= 12
 		martial >= 15
 		has_feudal_government_trigger = yes 
@@ -2660,45 +2685,39 @@ nicknames_plus.0108 = {
 	}
 
     immediate = {
-		set_nickname_effect = { NICKNAME = nick_the_duke_of_death }
+		if = {
+			limit = {
+				is_female = no
+			}
+			set_nickname_effect = { NICKNAME = nick_the_duke_of_death }
+		}
+		else = {
+			set_nickname_effect = { NICKNAME = nick_the_duchess_of_pain }
+		}
     }
 }
 nicknames_plus.0109 = { 
 	hidden = yes
 	trigger = {
 		age >= 16
-		highest_held_title_tier = tier_duchy
-		is_female = yes
-		prowess >= 12
-		martial >= 15
-		has_feudal_government_trigger = yes 
-		OR = {
-			has_trait = reckless
-			has_trait = aggressive_attacker
-		}
-		has_trait_rank = {
-			trait = education_martial
-			rank >= 2
-		}
+		has_trait = lustful
+		has_trait = content
+		prestige_level <= 2
 	}
 	weight_multiplier = {
 		base = 1
 		modifier = {
 			factor = 2
-			has_trait = sadistic
+			has_trait = rakish
 		}
 		modifier = {
 			factor = 2
-			has_trait = vengeful
-		}
-		modifier = {
-			factor = 2
-			has_trait = wrathful
+			prestige_level <= 0
 		}
 	}
 
     immediate = {
-		set_nickname_effect = { NICKNAME = nick_the_duchess_of_pain }
+		set_nickname_effect = { NICKNAME = nick_the_pointless_pervert }
     }
 }
 nicknames_plus.0110 = { 
@@ -3682,7 +3701,6 @@ nicknames_plus.0161 = {
 		intrigue >= 20
 		has_trait = deceitful
 		has_trait = ambitious
-		is_female = yes
 	}
 	weight_multiplier = {
 		base = 1
@@ -3701,36 +3719,44 @@ nicknames_plus.0161 = {
 	}
 
     immediate = {
-		set_nickname_effect = { NICKNAME = nick_the_queen_of_thorns }
+		if = {
+			limit = {
+				is_female = no
+			}
+			set_nickname_effect = { NICKNAME = nick_the_king_of_thorns }
+		}
+		else = {
+			set_nickname_effect = { NICKNAME = nick_the_queen_of_thorns }
+		}
     }
 }
 nicknames_plus.0162 = { 
 	hidden = yes
 	trigger = {
 		age >= 16
-		intrigue >= 20
-		has_trait = deceitful
-		has_trait = ambitious
-		is_female = no
+		has_trait = callous
+		highest_held_title_tier >= tier_duchy
+		liege = {
+			player_heir_position = {
+				position >= 1
+				target = root
+			}
+			player_heir_position = {
+				position <= 4
+				target = root
+			}
+		}
 	}
 	weight_multiplier = {
-		base = 1
+		base = 2
 		modifier = {
 			factor = 3
-			has_trait = schemer
-		}
-		modifier = {
-			factor = 2
-			intrigue >= 25
-		}
-		modifier = {
-			factor = 2
-			intrigue >= 30
+			has_trait = scaly
 		}
 	}
 
     immediate = {
-		set_nickname_effect = { NICKNAME = nick_the_king_of_thorns }
+		set_nickname_effect = { NICKNAME = nick_the_black_adder }
     }
 }
 nicknames_plus.0163 = { 
@@ -6539,12 +6565,8 @@ nicknames_plus.0294 = {
 		OR = { 
 			has_trait = bastard
 			AND = {
-				father = {
-					is_alive = no
-				}
-				mother = {
-					is_alive = no
-				}
+				has_father = no
+				has_mother = no
 			}
 		}
 	}
@@ -6575,5 +6597,368 @@ nicknames_plus.0295 = {
 
     immediate = {
 		set_nickname_effect = { NICKNAME = nick_weak_legs }
+    }
+}
+nicknames_plus.0296 = {
+	hidden = yes
+	trigger = {
+		trigger_if = {
+			limit = {
+				exists = mother
+				exists = father
+			}
+			NOR = {
+				mother = {
+					culture = root.culture
+				}
+				father = {
+					culture = root.culture
+				}
+			}
+		}
+		trigger_else = {
+			always = no
+		}
+	}
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			factor = 3
+			NOR = {
+				mother = {
+					culture_group = root.culture_group
+				}
+				father = {
+					culture_group = root.culture_group
+				}
+			}
+		}
+	}
+
+    immediate = {
+		set_nickname_effect = { NICKNAME = nick_the_culture }
+    }
+}
+nicknames_plus.0297 = {
+	hidden = yes
+	trigger = {
+		has_character_flag = nicknames_plus_posthumous
+	}
+	weight_multiplier = {
+		base = 6
+	}
+
+    immediate = {
+		set_nickname_effect = { NICKNAME = nick_the_posthumous }
+    }
+}
+nicknames_plus.0298 = { 
+	hidden = yes
+	trigger = {
+		age >= 16
+		has_trait = diligent
+		has_trait = patient
+	}
+	weight_multiplier = {
+		base = 2
+	}
+
+    immediate = {
+		set_nickname_effect = { NICKNAME = nick_the_exhaustless }
+    }
+}
+nicknames_plus.0299 = { 
+	hidden = yes
+	trigger = {
+		age >= 16
+		has_trait = overseer
+		has_trait = paranoid
+	}
+	weight_multiplier = {
+		base = 2
+	}
+
+    immediate = {
+		set_nickname_effect = { NICKNAME = nick_the_watchfire }
+    }
+}
+nicknames_plus.0300 = { 
+	hidden = yes
+	trigger = {
+		age >= 16
+		calc_true_if = {
+			amount >= 2
+			has_trait = beauty_good
+			has_trait = seducer
+			has_trait = lustful
+		}
+		NOT = { has_trait = chaste }
+		has_unpleasant_appearence_trait_trigger = no
+		piety_level <= 3
+		OR = {
+			piety_level <= 0
+			has_trait = deviant
+			has_trait = witch
+			has_trait = possessed
+		}
+	}
+	weight_multiplier = {
+		base = 3
+		modifier = {
+			factor = 3
+			has_trait = beauty_good
+			has_trait = seducer
+			has_trait = lustful
+		}
+	}
+
+    immediate = {
+		if = {
+			limit = {
+				is_female = no
+			}
+			set_nickname_effect = { NICKNAME = nick_the_incubus }
+		}
+		else = {
+			set_nickname_effect = { NICKNAME = nick_the_succubus }
+		}
+    }
+}
+
+# nickname_selection_on_death
+nicknames_plus.5001 = {
+	hidden = yes
+	trigger = {
+		scope:nickname_reciver = {
+			trigger_if = {
+				limit = {
+					is_lowborn = no
+				}
+				house = {
+					NOT = {
+						any_house_member = {
+							is_alive = yes
+						}
+					}
+				}
+				# Not house founder
+				OR = {
+					trigger_if = {
+						limit = {
+							exists = father
+						}
+						father.house = {
+							this = scope:nickname_reciver.house
+						}
+					}
+					trigger_if = {
+						limit = {
+							exists = mother
+						}
+						mother.house = {
+							this = scope:nickname_reciver.house
+						}
+					}
+					always = no
+				}	
+			}
+			trigger_else = {
+				always = no
+			}
+		}
+	}
+	weight_multiplier = {
+		base = 2
+		modifier = {
+			factor = 6
+			scope:nickname_reciver = {
+				dynasty = {
+					NOT = {
+						any_dynasty_member = {
+							is_alive = yes
+						}
+					}
+				}
+			}
+		}
+	}
+
+    immediate = {
+		scope:nickname_reciver = {
+			set_nickname_effect = { NICKNAME = nick_the_last }
+		}
+    }
+}
+nicknames_plus.5002 = {
+	hidden = yes
+	trigger = {
+		scope:nickname_reciver = {
+			has_religion = religion:christianity_religion
+			scope:piety_level >= 2
+			OR = {
+				death_reason = death_dungeon
+				death_reason = death_fight
+				death_reason = death_battle
+				death_reason = death_head_ripped_off
+				death_reason = death_execution
+				death_reason = death_execution_blood_eagle
+				death_reason = death_execution_blood_eagle_killer
+				death_reason = death_execution_blot
+				death_reason = death_execution_killer
+				death_reason = death_whipping
+				death_reason = death_torture
+				death_reason = death_burned
+				death_reason = death_eaten
+				death_reason = death_beaten
+				death_reason = death_sacrificed_to_gods
+				death_reason = death_crucified
+				death_reason = death_burned_witch
+				death_reason = death_pilgrimage_bandit_attack
+				death_reason = death_sun_trial
+			}
+			trigger_if ={
+				limit = {
+					exists = killer
+				}
+				faith = {
+					faith_hostility_level = {
+						target = scope:nickname_reciver.killer.faith
+						value >= faith_hostile_level
+					}
+				}
+			}
+			trigger_else = {
+				always = no
+			}
+		}
+	}
+	weight_multiplier = {
+		base = 3
+		modifier = {
+			factor = 2
+			scope:nickname_reciver = {
+				scope:piety_level >= 3
+			}
+		}
+		modifier = {
+			factor = 2
+			scope:nickname_reciver = {
+				scope:piety_level >= 4
+			}
+		}
+		modifier = {
+			factor = 2
+			scope:nickname_reciver = {
+				scope:piety_level >= 5
+			}
+		}
+	}
+
+    immediate = {
+		scope:nickname_reciver = {
+			set_nickname_effect = { NICKNAME = nick_the_martyr }
+		}
+    }
+}
+nicknames_plus.5003 = {
+	hidden = yes
+	trigger = {
+		scope:nickname_reciver = {
+			scope:prestige_level >= 2
+			exists = killer
+			OR = {
+				has_trait = compassionate
+				has_trait = forgiving
+				has_trait = just
+			}
+			NOR = {
+				has_trait = callous
+				has_trait = sadistic
+				has_trait = arbitrary
+				has_trait = vengeful
+			}
+		}
+	}
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			factor = 2
+			scope:nickname_reciver = {
+				calc_true_if = {
+					amount >= 2
+					has_trait = compassionate
+					has_trait = forgiving
+					has_trait = just
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			scope:nickname_reciver = {
+				scope:prestige_level >= 3
+			}
+		}
+		modifier = {
+			factor = 1.5
+			scope:nickname_reciver = {
+				scope:prestige_level >= 4
+			}
+		}
+		modifier = {
+			factor = 1.5
+			scope:nickname_reciver = {
+				scope:prestige_level >= 5
+			}
+		}
+	}
+
+    immediate = {
+		scope:nickname_reciver = {
+			set_nickname_effect = { NICKNAME = nick_the_loved_and_killed }
+		}
+    }
+}
+nicknames_plus.5004 = {
+	hidden = yes
+	trigger = {
+		scope:nickname_reciver = {
+			OR = {
+				death_reason = death_fight
+				death_reason = death_battle
+				death_reason = death_head_ripped_off
+			}
+		}
+	}
+	weight_multiplier = {
+		base = 1
+	}
+
+    immediate = {
+		scope:nickname_reciver = {
+			set_nickname_effect = { NICKNAME = nick_the_slaughtered }
+		}
+    }
+}
+nicknames_plus.5005 = {
+	hidden = yes
+	trigger = {
+		scope:nickname_reciver = {
+			OR = {
+				death_reason = death_execution
+				death_reason = death_execution_blood_eagle
+				death_reason = death_execution_blood_eagle_killer
+				death_reason = death_execution_blot
+				death_reason = death_execution_killer
+			}
+		}
+	}
+	weight_multiplier = {
+		base = 1
+	}
+
+    immediate = {
+		scope:nickname_reciver = {
+			set_nickname_effect = { NICKNAME = nick_the_executed }
+		}
     }
 }

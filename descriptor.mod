@@ -1,6 +1,9 @@
-version="1.0.0"
+version="1.1.0"
 tags={
 	"Gameplay"
+	"Fixes"
+	"Balance"
 }
 name="Nicknames+"
-supported_version="1.1.2"
+supported_version="1.1.*"
+remote_file_id="2251687872"

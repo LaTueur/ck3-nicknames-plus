@@ -217,7 +217,6 @@ nick_weak_legs = { is_bad = yes }
 
 nick_the_indecisive = { is_bad = yes }
 nick_the_purple_born = {}
-nick_the_avenger = {}
 nick_the_pale = {}
 nick_the_incorruptible = {}
 nick_the_tranquil = {}
@@ -230,3 +229,23 @@ nick_the_irresolute = { is_bad = yes }
 nick_the_ashamed = { is_bad = yes }
 nick_the_thoroughbred = {}
 nick_a_random_nickname = {} # Used for tooltip
+
+nick_the_carpenter = {}
+nick_the_guru = {}
+nick_the_rambunctious = { is_bad = yes }
+nick_the_medium = {}
+nick_the_pointless_pervert = { is_bad = yes }
+nick_the_black_adder = {}
+nick_the_chosen = {}
+nick_the_culture = {}
+nick_the_posthumous = {}
+nick_the_exhaustless = {}
+nick_the_watchfire = {}
+nick_the_incubus = {}
+nick_the_succubus = {}
+
+# nickname_random_selection_on_death
+nick_the_last = {}
+nick_the_loved_and_killed = {}
+nick_the_slaughtered = {}
+nick_the_executed = {}
