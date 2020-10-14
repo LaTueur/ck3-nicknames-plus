@@ -90,7 +90,7 @@
  nick_the_hoary:0 "[CHARACTER.Custom('DE_ART_DEF_S_N')] Eiserne"
  nick_the_stark:0 "[CHARACTER.Custom('DE_ART_DEF_S_N')] Starke"
  nick_the_lawful:0 "[CHARACTER.Custom('DE_ART_DEF_S_N')] Rechtschaffene" 
- nick_the_frank:0 "[CHARACTER.Custom('DE_ART_DEF_S_N')] Frank"                                                                                  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<???????????
+ nick_the_frank:0 "[CHARACTER.Custom('DE_ART_DEF_S_N')] Unverfälschte"
  nick_the_black_prince:0 "der Schwarze Prinz"
  nick_the_blameless:0 "[CHARACTER.Custom('DE_ART_DEF_S_N')] Schuldlose"
  nick_the_uninvolved:0 "[CHARACTER.Custom('DE_ART_DEF_S_N')] Unbeteiligte"
@@ -105,7 +105,7 @@
  nick_the_wine_bather:0 "[CHARACTER.Custom('DE_ART_DEF_S_N')] Weinbadende"
  nick_the_breaker_of_chains:0 "[CHARACTER.Custom('DE_ART_DEF_S_N')] Kettenbrecher[CHARACTER.Custom('DE_END_NOU_S_GS_N')]"
  nick_the_aggressor:0 "[CHARACTER.Custom('DE_ART_DEF_S_N')] Angreifer[CHARACTER.Custom('DE_END_NOU_S_GS_N')]"
- nick_the_lusty_leper:0 "[CHARACTER.Custom('DE_ART_DEF_S_N')] Lusty Leper"                                                                      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<??????????????
+ nick_the_lusty_leper:0 "[CHARACTER.Custom('DE_ART_DEF_S_N')] lustvolle Aussätzige"
  nick_the_vicious_viper:0 "die Böse Viper"                                                                  
  nick_the_wife_thief:0 "Der Ehefrauen-Dieb"
  nick_the_enchantress:0 "[CHARACTER.Custom('DE_ART_DEF_S_N')] Bezaubernde"
