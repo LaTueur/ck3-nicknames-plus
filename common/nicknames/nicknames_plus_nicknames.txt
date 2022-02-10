@@ -237,7 +237,6 @@ nick_the_medium = {}
 nick_the_pointless_pervert = { is_bad = yes }
 nick_the_black_adder = {}
 nick_the_chosen = {}
-nick_the_culture = {}
 nick_the_posthumous = {}
 nick_the_exhaustless = {}
 nick_the_watchfire = {}

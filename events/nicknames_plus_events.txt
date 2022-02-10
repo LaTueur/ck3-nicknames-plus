@@ -2336,9 +2336,11 @@ nicknames_plus.0091 = {
 	trigger = {
 		OR = {
 			AND = {
-				OR = {
-					culture_group = culture_group:mongolic_group
-					culture_group = culture_group:turkic_group
+				culture = {
+					OR = {
+						has_cultural_pillar = heritage_mongolic
+						has_cultural_pillar = heritage_turkic
+					}
 				}
 				NOT = { culture = culture:khitan }
 				OR = {
@@ -2367,9 +2369,11 @@ nicknames_plus.0091 = {
 		base = 2
 		modifier = {
 			factor = 2
-			OR = {
-				culture_group = culture_group:mongolic_group
-				culture_group = culture_group:turkic_group
+			culture = {
+				OR = {
+					has_cultural_pillar = heritage_mongolic
+					has_cultural_pillar = heritage_turkic
+				}
 			}
 		}
 	}
@@ -2752,7 +2756,11 @@ nicknames_plus.0111 = {
 		}
 		modifier = {
 			factor = 3
-			culture = culture:greek
+			knows_language = language_greek
+		}
+		modifier = {
+			factor = 2
+			knows_language = language_latin
 		}
 	}
 
@@ -3738,11 +3746,11 @@ nicknames_plus.0162 = {
 		highest_held_title_tier >= tier_duchy
 		liege = {
 			player_heir_position = {
-				position >= 1
+				value >= 1
 				target = root
 			}
 			player_heir_position = {
-				position <= 4
+				value <= 4
 				target = root
 			}
 		}
@@ -4850,11 +4858,15 @@ nicknames_plus.0215 = {
 nicknames_plus.0216 = { 
 	hidden = yes
 	trigger = {
-		culture_group = culture_group:israelite_group
+		culture = {
+			has_cultural_pillar = heritage_israelite
+		}
 		is_independent_ruler = no
 		liege = {
 			NOR = {
-				culture_group = culture_group:israelite_group
+				culture = {
+					has_cultural_pillar = heritage_israelite
+				}
 				has_religion = religion:judaism_religion
 			}
 		}
@@ -6626,16 +6638,24 @@ nicknames_plus.0296 = {
 			factor = 3
 			NOR = {
 				mother = {
-					culture_group = root.culture_group
+					culture = {
+						has_same_culture_heritage = root.culture
+					}
 				}
 				father = {
-					culture_group = root.culture_group
+					culture = {
+						has_same_culture_heritage = root.culture
+					}
 				}
 			}
 		}
 	}
 
     immediate = {
+		set_variable = {
+			name = nick_the_culture_var
+			value = root.culture
+		}
 		set_nickname_effect = { NICKNAME = nick_the_culture }
     }
 }

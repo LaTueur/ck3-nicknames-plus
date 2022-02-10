@@ -35,16 +35,20 @@ has_unpleasant_appearence_trait_trigger = {
     }
 }
 can_get_chinese_nickname_trigger = {
-    OR = {
-        culture_group = culture_group:chinese_group
-        culture_group = culture_group:qiangic_group
-        culture = culture:khitan
-        culture = culture:jurchen
+    culture = {
+        OR = {
+            has_cultural_pillar = heritage_chinese
+            has_cultural_pillar = heritage_qiangic
+            this = culture:khitan
+            this = culture:jurchen
+        }
     }
 }
 can_get_northerner_nickname_trigger = {
     OR = {
-        culture_group = culture_group:north_germanic_group
+        culture = {
+            has_cultural_pillar = heritage_north_germanic
+        }
         has_religion = religion:germanic_religion
     }
 }
